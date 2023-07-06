@@ -10,9 +10,9 @@ const TodoSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  user: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'user',
     required: true
   }
 },
