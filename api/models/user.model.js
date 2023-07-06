@@ -16,8 +16,7 @@ const UserSchema = new Schema({
   },
   todos: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'todos',
-    required: true
+    ref: 'todos'
   }]
 },
 { timestamps: false },

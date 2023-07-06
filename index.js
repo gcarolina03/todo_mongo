@@ -3,8 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const app = express()
-const db = require('./db')
+const { connectToDatabase, disconnectFromDatabase } = require('./db');
 const { router } = require('./api/routes');
+
+connectToDatabase()
 
 const start = async () => {
   try {
@@ -12,7 +14,6 @@ const start = async () => {
       .use(cors())
       .use(morgan('dev'))
       .use(express.json())
-    db()
     app
       .get('/', (req, res) => res.send('Welcome to TO DO API with MONGO'))
       .use('/api', router)

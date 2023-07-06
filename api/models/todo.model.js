@@ -9,6 +9,11 @@ const TodoSchema = new Schema({
   done: { 
     type: Boolean,
     default: false,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users',
+    required: true
   }
 },
 { timestamps: false },
